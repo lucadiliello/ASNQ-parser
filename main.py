@@ -54,6 +54,7 @@ if __name__ == "__main__":
     assert sum([int(x) for x in splits]) == 100, "Splits MUST sum to 100"
 
     # Check file existence
+    print("Checking file and directories")
     assert os.path.exists(input_file), "Input file {} does not exists".format(input_file)
     if os.path.exists(output_folder):
         assert force, "{} does already exists. Use -f option to overwrite it".format(output_folder)
@@ -67,8 +68,10 @@ if __name__ == "__main__":
         delimiter = "\t"
     
     if delimiter is None:
+        print("Inferring delimiter from input data")
         with open(input_file) as f:
             delimiter = detect(f.read())
+            print(f"Delimiter is '{delimiter}'")
 
     # Import data
     print("Loading data from disk")
