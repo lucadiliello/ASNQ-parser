@@ -70,7 +70,9 @@ if __name__ == "__main__":
     if delimiter is None:
         print("Inferring delimiter from input data")
         with open(input_file) as f:
-            delimiter = detect(f.read())
+            data = [f.readline() for i in range(50)]
+            data = "\n".join([x for x in data if x])
+            delimiter = detect(data)
             print(f"Delimiter is '{delimiter}'")
 
     # Import data
