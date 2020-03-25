@@ -29,7 +29,7 @@ if __name__ == "__main__":
     parser.add_argument("--seed", required=False, default=999, type=int,
                     help="seed for shuffling")
 
-    parser.add_argument("--as-true", required=False, nargs='+', type=int, default=[1, 2, 3],
+    parser.add_argument("--as-true", required=False, nargs='+', type=int, default=[4],
                         help="List of labels that must be considered as true (1)")
 
     args = parser.parse_args()
