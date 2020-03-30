@@ -87,8 +87,11 @@ if __name__ == "__main__":
     data = []
     for i, line in enumerate(input_data):
         assert len(line) == 3, f"Line {i} has a problem: {line}"
+        assert all([bool(x) for x in line]), f"Line {i} has a problem: {line}"
         label = int(int(line[2]) in as_true)
         data.append([str(line[0]), str(line[1]), label])
+
+    print(f"Positive labels: {len([x for x in data if x[2] == 1])}, negative: {len([x for x in data if x[2] == 0])}")
 
     if shuffle:
         print("Shuffling dataset")
